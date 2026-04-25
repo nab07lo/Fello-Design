@@ -132,15 +132,12 @@ export function ProjectDetail() {
           <div className="h-px bg-[#222] flex-1"></div>
         </div>
 
-        <div ref={galleryRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div ref={galleryRef} className="columns-1 md:columns-2 lg:columns-3 gap-6 md:gap-10 space-y-6 md:space-y-10">
           {project.gallery.map((imgUrl, index) => {
-            // Asymmetric modern grid: every 3rd image spans full width
-            const isFullWidth = index % 3 === 0;
-            
             return (
               <div 
                 key={index} 
-                className={`w-full overflow-hidden bg-[#111] group relative ${isFullWidth ? 'md:col-span-2' : 'col-span-1'}`}
+                className="w-full overflow-hidden bg-[#111] group relative break-inside-avoid"
               >
                 <div className="absolute inset-0 bg-[#FF5E00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none mix-blend-overlay"></div>
                 <img 
